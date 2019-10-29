@@ -47,15 +47,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        fonts: [
-          {
-            family: `Rubik`,
-            subsets: [`latin`],
-            variants: [`400`, `500`]
-          },
-        ],
+        pathToConfigModule: `src/utils/typography`,
       },
     },
   ],
