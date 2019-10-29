@@ -5,13 +5,21 @@ module.exports = {
     author: `@driespieters`,
     menuLinks:[
       {
-        name:'home',
-        link:'/'
+        name:'work',
+        link:'/work'
      },
      {
-       name:'page2',
-       link:'/page-2'     
-      }
+       name:'profile',
+       link:'/profile'
+     },
+     {
+       name:'blog',
+       link:'/blog'
+     },
+      {
+        name:'contact',
+        link:'/contact'
+       }
     ]
   },
   plugins: [
