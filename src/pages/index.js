@@ -37,7 +37,7 @@ export const IndexQuery = graphql`
               localFile {
                 childImageSharp {
                   fluid {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

@@ -8,7 +8,7 @@ const Hero = () => {
       file(relativePath: { eq: "profile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
