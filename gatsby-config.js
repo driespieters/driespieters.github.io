@@ -3,24 +3,6 @@ module.exports = {
     title: `Dries Pieters`,
     description: `Portfolio of Dries Pieters`,
     author: `@driespieters`,
-    menuLinks:[
-      {
-        name:'work',
-        link:'/work'
-     },
-     {
-       name:'profile',
-       link:'/profile'
-     },
-     {
-       name:'blog',
-       link:'/blog'
-     },
-      {
-        name:'contact',
-        link:'/contact'
-       }
-    ]
   },
   plugins: [
     `gatsby-plugin-netlify`,
