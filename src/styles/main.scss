@@ -1,7 +1,9 @@
+@import "variables";
+
 .hero {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 60px;
+  grid-gap: $gutter * 2;
   align-items: center;
   min-height: 90vh;
   padding: 120px;
@@ -9,7 +11,6 @@
 
 .hero__image {
   box-shadow: 10px -10px 0px #6B856F;
-
 }
 
 .work {
