@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Hero from "../components/hero"
+import Hero from "../components/hero/hero"
 import Work from "../components/work"
 import SEO from "../components/seo"
 
