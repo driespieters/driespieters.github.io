@@ -9,7 +9,7 @@ const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <Hero />
-    <div class="work">
+    <div className="work">
     {props.data.articles.edges.map(article => (
       <Work slug={article.node.slugs[0]} data={article.node.data} />
     ))}
