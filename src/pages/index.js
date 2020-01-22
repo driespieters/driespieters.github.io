@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Hero from "../components/hero/hero"
+import Hero from "../components/hero"
 import Work from "../components/work"
 import SEO from "../components/seo"
 
@@ -15,8 +14,6 @@ const IndexPage = props => (
       <Work slug={article.node.slugs[0]} data={article.node.data} />
     ))}
     </div>
-
-    <Link to="/">Go back to the homepage</Link>
 
   </Layout>
 )
@@ -36,7 +33,7 @@ export const IndexQuery = graphql`
             featured_image {
               localFile {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

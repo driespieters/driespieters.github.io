@@ -1,16 +1,43 @@
 @import "variables";
 
+// Typography
+.text--intro {
+  font-size: 1.2em;
+}
+
+
+
+// Section HERO
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $grid-gutter;
+  align-items: center;
+  min-height: 90vh;
+  padding: 120px;
+  @extend .text--intro;
+}
+
+
+.hero__image {
+}
+
+
+
+
+// Section WORK
 .work {
-  background: #F5F2F0;
-  box-shadow: inset 0 60px 0 0 #fff;
   width: 100%;
 }
 
 .work-article {
+  background: $color-bg-light;
+  box-shadow: inset 0 $grid-gutter * 2 0 0 #fff;
   display: grid;
   grid-template-columns: 60% 1fr;
   align-items: center;
-  grid-gap: 60px;
+  grid-gap: $grid-gutter;
+  margin-bottom: $grid-gutter * 4;
 }
 
 .work-article img {
