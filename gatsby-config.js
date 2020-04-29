@@ -27,13 +27,6 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
-    },
-    {
-      resolve: `gatsby-source-prismic`,
-      options: {
-        repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
-        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-      },
-    },
+    }
   ],
 }

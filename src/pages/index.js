@@ -9,39 +9,8 @@ const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <Hero />
-    <div className="work">
-    {props.data.articles.edges.map(article => (
-      <Work slug={article.node.slugs[0]} data={article.node.data} />
-    ))}
-    </div>
 
   </Layout>
 )
 
 export default IndexPage
-
-export const IndexQuery = graphql`
-  query Articles {
-    articles: allPrismicWork {
-      edges {
-        node {
-          slugs
-          data {
-            title {
-              text
-            }
-            featured_image {
-              localFile {
-                childImageSharp {
-                  fluid(quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
