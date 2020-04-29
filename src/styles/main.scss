@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
 
+
 // Typography
 .text--intro {
   font-size: 1.1em;
@@ -8,14 +9,18 @@
 
 // Section HERO
 .hero {
-  min-height: 90vh;
-  padding: 120px 20px;
-  @extend .text--intro;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  border-bottom: $base-border;
 }
 
 .hero__image {
-  margin-top: 120px;
-  //   box-shadow: 10px -10px 0px darkgray;
+  border-left: $base-border;
+}
+
+.hero__content {
+  padding: $grid-gutter * 4;
+  @extend .text--intro;
 }
 
 .hero__shopify {
@@ -23,27 +28,25 @@
   display: block;
 }
 
-@include media-query($medium-up) {
-  .hero {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: $grid-gutter;
-    align-items: center;
-    min-height: 90vh;
-    padding: 120px;
-  }
-
-  .hero__image {
-    margin-top: 0;
-  }
-}
-
-
 
 
 // Section WORK
 .work {
   width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.work__title {
+  border-right: $base-border;
+  width: 90px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.work__title h2 {
+  transform: rotate(-90deg);
 }
 
 .work-article {

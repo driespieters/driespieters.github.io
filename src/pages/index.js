@@ -9,6 +9,7 @@ const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <Hero />
+    <Work />
 
   </Layout>
 )
