@@ -35,6 +35,18 @@ module.exports = {
           include: /assets/ // See below to configure properly
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Dries Pieters`,
+        short_name: `DriesPieters`,
+        start_url: `/`,
+        background_color: `#222222`,
+        theme_color: `#222222`,
+        display: `standalone`,
+        icon: `src/assets/logo.svg`,
+      },
+    },
   ],
 }
