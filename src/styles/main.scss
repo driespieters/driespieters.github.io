@@ -73,15 +73,21 @@
 }
 
 .work__title {
+  position: relative;
   border-right: $base-border;
-  width: $grid-gutter * 3;
+  width: $grid-gutter * 4;
   height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .work__title h2 {
-  transform: rotate(-90deg);
+  position: sticky;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg) translate(-100%, 00%);
+  white-space: nowrap;
+  font-weight: lighter;
+  font-size: 1em;
+  text-transform: uppercase;
 }
 
 .work-article {
@@ -103,4 +109,9 @@
     grid-gap: $grid-gutter;
     margin-bottom: $grid-gutter * 4;
   }
+}
+
+// Work Item
+.workItem {
+  padding: $grid-gutter * 4;
 }
