@@ -29,7 +29,7 @@
 }
 
 .hero__content {
-  padding: $grid-gutter * 4 $grid-gutter $grid-gutter $grid-gutter;
+  padding: $grid-gutter * 4 $grid-gutter $grid-gutter * 2 $grid-gutter;
   @extend .text--intro;
 }
 
