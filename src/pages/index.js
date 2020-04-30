@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero from "../components/hero"
 import Work from "../components/work"
@@ -10,7 +9,6 @@ const IndexPage = props => (
     <SEO title="Home" />
     <Hero />
     <Work />
-
   </Layout>
 )
 
