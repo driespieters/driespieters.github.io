@@ -8,13 +8,13 @@ import Logo from "../assets/logo.svg"
 const Layout = ({ children }) => {
   return (
     <div>
-      <header className="site-header">
+      <header className="siteHeader">
         <Link to="/">
-          <Logo className="site-logo" />
+          <Logo className="siteLogo"/>
         </Link>
       </header>
       <main>{children}</main>
-      <footer>
+      <footer className="siteFooter">
         © {new Date().getFullYear()} All rights reserved.
       </footer>
     </div>

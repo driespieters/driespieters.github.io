@@ -8,7 +8,7 @@
 }
 
 // Header
-.site-header {
+.siteHeader {
   position: fixed;
   top: 0;
   right: 0;
@@ -16,10 +16,16 @@
   padding: $grid-gutter;
 }
 
-.site-logo {
+.siteLogo {
   height: 30px;
   width: auto;
   display: block;
+}
+
+// Footer
+.siteFooter {
+  border-top: $base-border;
+  padding: $grid-gutter;
 }
 
 // Section HERO
