@@ -1,0 +1,23 @@
+.work {
+  width: 100%;
+  display: flex;
+}
+
+.title {
+  position: relative;
+}
+
+.title h2 {
+  position: sticky;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg) translate(-100%, 00%);
+  white-space: nowrap;
+  font-weight: lighter;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.item {
+  padding: 120px;
+}
