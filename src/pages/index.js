@@ -8,7 +8,6 @@ const IndexPage = props => (
   <Layout>
     <SEO title="Freelance webdesigner" />
     <Hero />
-    <Work />
   </Layout>
 )
 
