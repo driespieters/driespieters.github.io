@@ -20,6 +20,7 @@ const Hero = () => {
       <div className="hero__content">
         <p>I’m <strong>Dries Pieters</strong>, a Brussels based front-end developer. Over the 9 years of my career I've specialized myself in Shopify, helping start-ups and established brands with their e-commerce strategy.</p>
         <p>If you think I'd be a good fit for your project, please get in touch and we can chat.</p>
+        <p><a href="mailto:hello@driespieters.com" target="_blank" rel="noopener noreferrer">hello@driespieters.com</a></p>
         <a href="https://www.shopify.be/?ref=driespieters" target="_blank" title="Shopify Plus Expert" className="hero__shopify" rel="noopener noreferrer">
           <LogoShopify />
         </a>
