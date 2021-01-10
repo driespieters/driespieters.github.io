@@ -48,7 +48,7 @@ a {
   margin-top: $grid-gutter / 2;
 }
 
-@include media-query($medium-up) {
+@media screen and (min-width: 46.85em) {
   .hero {
     display: grid;
     grid-template-columns: 60% 40%;
