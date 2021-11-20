@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import profilePic from '../public/profile.jpg'
+import Hero from "../components/Hero"
 
 export default function Home() {
   return (
@@ -11,21 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="border border-gray-900 p-4 m-4">
-        <h1>
-          Welcome to Dries Pieters
-        </h1>
-
-      <div className="w-24 h-24">
-          <Image
-        src={profilePic}
-        alt="Picture of the author"
-        placeholder="blur"
-      />
-      </div>
-
-        <p className="text-lg">I’m Dries Pieters, a Brussels based front-end developer. Over the 9 years of my career I've specialized myself in Shopify, helping start-ups and established brands with their e-commerce strategy. If you think I'd be a good fit for your project, please get in touch and we can chat.</p>
-      </main>
+      <Hero />     
     </div>
   )
 }
