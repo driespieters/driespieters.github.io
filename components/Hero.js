@@ -6,7 +6,7 @@ export default function Hero() {
         <div className="border-b border-gray-800 md:flex md:items-stretch ">
             <div className="prose max-w-none px-6 py-28 md:prose-md md:w-7/12 md:px-12 lg:px-24">
                 <p>I&apos;m <strong>Dries Pieters</strong>, a Brussels based front-end developer. Over the 9 years of my career I&apos;ve specialized myself in Shopify, helping start-ups and established brands with their e-commerce strategy.</p>
-                <p>If you think I'd be a good fit for your project, please get in touch and we can chat.</p>
+                <p>If you think I&apos;d be a good fit for your project, please get in touch and we can chat.</p>
                 <p>
                     <a href="mailto:hello@driespieters.com" target="_blank" rel="noopener noreferrer">hello@driespieters.com</a>
                 </p>
