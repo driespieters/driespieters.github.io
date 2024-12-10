@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import { Image } from "@unpic/react";
 import spelen from "../assets/spelen.jpg";
 
@@ -13,12 +14,14 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
+      <Link to="/about">about</Link>;
       <Image
         src={spelen}
         alt="A viaduct"
         width={800}
         height={600}
         priority
+        background="auto"
         cdn="netlify"
       />
       <ul>
