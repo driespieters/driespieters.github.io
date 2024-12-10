@@ -18,6 +18,7 @@ export default function Index() {
         alt="A viaduct"
         width={800}
         height={600}
+        priority
         cdn="netlify"
       />
       <ul>
