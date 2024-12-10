@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Image } from "@unpic/react";
+import spelen from "../spelen.jpg";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,6 +13,13 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
+      <Image
+        src={spelen}
+        alt="A viaduct"
+        width={800}
+        height={600}
+        cdn="netlify"
+      />
       <ul>
         <li>
           <a
