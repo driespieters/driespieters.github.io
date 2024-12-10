@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Image } from "@unpic/react";
-import spelen from "../spelen.jpg";
+import spelen from "../assets/spelen.jpg";
 
 export const meta: MetaFunction = () => {
   return [
