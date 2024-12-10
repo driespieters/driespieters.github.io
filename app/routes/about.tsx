@@ -14,7 +14,7 @@ export default function About() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>About page!</h1>
-      <Link to="/about">Home</Link>;
+      <Link to="/">Home</Link>
       <p>
         Temporary about page. This is a Remix app with a few pages. This is the
         about page.
