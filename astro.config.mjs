@@ -9,4 +9,8 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   adapter: netlify(),
   integrations: [tailwind()],
+  experimental: {
+    svg: true,
+    responsiveImages: true,
+  },
 });

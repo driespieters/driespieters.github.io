@@ -1,3 +1,7 @@
+---
+import "@fontsource-variable/inter";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,18 +9,116 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Dries Pieters | Shopify Front-end developer</title>
+    <meta
+      name="description"
+      content="Shopify front-end developer boasting over a decade of expertise. I craft extraordinary online experiences, helping start-ups and established brands with their e-commerce strategy."
+    />
   </head>
-  <body>
+  <body class="bg-[#f8f6ef] antialiased">
     <slot />
   </body>
 </html>
 
-<style>
-  html,
-  body {
-    margin: 0;
+<style is:global>
+  .link {
+    letter-spacing: 0.025em;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid currentColor;
+    line-height: 150%;
+    position: relative;
+    z-index: 1;
+    -webkit-transition:
+      color 0.25s,
+      border-color 0.25s;
+    -o-transition:
+      color 0.25s,
+      border-color 0.25s;
+    transition:
+      color 0.25s,
+      border-color 0.25s;
+  }
+
+  .link--noline {
+    border-bottom-color: transparent;
+  }
+
+  .link:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    height: 100%;
+    border-bottom: 1px solid #4566e3;
+    -webkit-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    opacity: 0;
+    -webkit-transition:
+      opacity 0.25s,
+      -webkit-transform 0ms 0.25s;
+    transition:
+      opacity 0.25s,
+      -webkit-transform 0ms 0.25s;
+    -o-transition:
+      transform 0ms 0.25s,
+      opacity 0.25s;
+    transition:
+      transform 0ms 0.25s,
+      opacity 0.25s;
+    transition:
+      transform 0ms 0.25s,
+      opacity 0.25s,
+      -webkit-transform 0ms 0.25s;
+    z-index: -1;
+  }
+
+  .link:hover {
+    color: #4566e3;
+    border-color: hsla(0, 0%, 9%, 0.001);
+    -webkit-transition:
+      color 0.5s,
+      border-color 0.25s;
+    -o-transition:
+      color 0.5s,
+      border-color 0.25s;
+    transition:
+      color 0.5s,
+      border-color 0.25s;
+  }
+
+  .link:hover:after {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    opacity: 1;
+    -webkit-transition:
+      opacity 0ms,
+      -webkit-transform 0.25s 0.25s;
+    transition:
+      opacity 0ms,
+      -webkit-transform 0.25s 0.25s;
+    -o-transition:
+      transform 0.25s 0.25s,
+      opacity 0ms;
+    transition:
+      transform 0.25s 0.25s,
+      opacity 0ms;
+    transition:
+      transform 0.25s 0.25s,
+      opacity 0ms,
+      -webkit-transform 0.25s 0.25s;
+  }
+
+  .link--current:hover {
+    color: currentColor;
+  }
+  .link--current:after {
+    border-bottom: 1px solid currentColor;
   }
 </style>
