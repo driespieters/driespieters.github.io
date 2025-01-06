@@ -164,6 +164,7 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
                 src={project.data.image}
                 alt={project.data.title}
                 class="absolute inset-0 -z-10 h-full w-full object-cover"
+                width={815}
               />
             ) : project.data.video ? (
               <video
@@ -180,6 +181,7 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
                 src={project.data.browser_image}
                 alt={project.data.title}
                 class="z-10 max-h-[75%] w-auto rounded"
+                width={600}
               />
             ) : project.data.browser_video ? (
               <video
