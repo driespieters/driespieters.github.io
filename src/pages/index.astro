@@ -1,50 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import driespieters from "../assets/driespieters.jpg";
-import Shopifylogo from "../assets/shopify.svg";
+import Welcome from "../components/Welcome.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout>
-  <div
-    class="border-b border-gray-800 md:flex md:items-stretch lg:min-h-[70vh]"
-  >
-    <div
-      class="md:prose-md prose max-w-none self-center px-6 py-28 md:w-7/12 md:px-12 lg:px-24"
-    >
-      <div class="text-lg">
-        <p>
-          I'm <strong>Dries Pieters</strong>, a Brussels-based front-end
-          developer. Over the past 10+ years of my career, I have specialized in
-          Shopify, helping start-ups and established brands with their
-          e-commerce strategies.
-        </p><p>
-          <br />If you think I would be a good fit for your project, please get
-          in touch so we can discuss it further.
-        </p>
-      </div>
-      <a href="mailto:hello@driespieters.com" class="link mt-6"
-        >hello@driespieters.com</a
-      >
-      <a
-        href="https://www.shopify.com/?ref=driespieters"
-        target="_blank"
-        title="Shopify Plus Expert"
-        rel="noopener noreferrer"
-        class="mt-8 block"
-      >
-        <Shopifylogo />
-      </a>
-    </div>
-    <div
-      class="flex border-t border-gray-800 md:w-5/12 md:border-l md:border-t-0"
-    >
-      <Image
-        src={driespieters}
-        alt="Dries Pieters - Shopify Front-end Developer"
-        priority
-        layout="responsive"
-      />
-    </div>
-  </div>
+  <Welcome />
+  <Projects />
 </Layout>

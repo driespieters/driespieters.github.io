@@ -9,6 +9,12 @@ export default {
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: "#1C1C1E",
+        textlight: "#5e5e65",
+        body: "#F8F6EF",
+        accent: "#4566e3",
+      },
     },
   },
   plugins: [],
