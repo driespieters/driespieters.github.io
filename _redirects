@@ -1,0 +1,11 @@
+# Redirects from what the browser requests to what we serve
+
+/policies/terms-of-service /terms-and-conditions
+
+# Redirect all /nl pages to /
+
+/nl/\* / 301
+
+# Redirect all /blogs pages to /
+
+/blogs/\* / 301

@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,7 +24,50 @@ import Footer from "../components/Footer.astro";
   </body>
 </html>
 
+<script>
+  // Add JS class to document
+  document.documentElement.className =
+    document.documentElement.className.replace("no-js", "js");
+</script>
+
+<script>
+  import { animate, scroll, inView } from "motion";
+
+  // General Inview animations
+  inView(
+    '[data-motion="up"],[data-motion="left"],[data-motion="fade"]',
+    (info) => {
+      animate(info.target, { opacity: 1 }, { delay: 0.5, duration: 0.9 });
+    }
+  );
+  // Specific Element animations (index)
+  const featuredWork = document.querySelectorAll(
+    '[data-motion="featuredwork"]'
+  );
+  if (featuredWork) {
+    scroll(animate(featuredWork, { opacity: [0.25, 1] }), {
+      offset: ["start start", "center center"],
+    });
+  }
+</script>
+
 <style is:global>
+  /* Animations */
+  .js [data-motion="fade"] {
+    opacity: 0;
+  }
+
+  .js [data-motion="up"] {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  .js [data-motion="left"] {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  /* Links */
   .link {
     letter-spacing: 0.025em;
     display: inline-block;
