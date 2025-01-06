@@ -6,8 +6,6 @@ browser_image: ""
 browser_video: ""
 tags:
   - webdesign
-  - ecommerce
-  - branding
+  - development
+  - consultancy
 ---
-
-This is a blog post
