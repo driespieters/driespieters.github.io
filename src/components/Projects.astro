@@ -4,86 +4,6 @@ import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 ---
 
-{
-  projects.map((project) => (
-    <div class="swiper-slide relative flex aspect-[3/5] h-full w-4/5 shrink-0 cursor-pointer flex-col items-center justify-center overflow-hidden rounded bg-white/5 px-3 transition-opacity delay-500 duration-500 md:w-1/2 md:px-4 lg:aspect-[4/5] lg:w-[calc(40%-58px)] lg:px-8 [&.swiper-slide-active]:cursor-default md:[&.swiper-slide-next]:cursor-default [&.swiper-slide-prev]:opacity-0">
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
-
-      <h2 class="absolute inset-3 z-10 text-xl font-semibold md:inset-8">
-        {project.data.url ? (
-          <a
-            href={project.data.url}
-            class="group inline-flex items-center gap-2"
-            target="_blank"
-          >
-            {project.data.title}
-            <span class="opacity-0 transition-opacity group-hover:opacity-100">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                />
-              </svg>{" "}
-            </span>
-          </a>
-        ) : (
-          project.data.title
-        )}
-      </h2>
-
-      {project.data.image ? (
-        <Image
-          src={project.data.image}
-          alt={project.data.title}
-          class="absolute inset-0 -z-10 h-full w-full object-cover"
-        />
-      ) : project.data.video ? (
-        <video
-          src={project.data.video}
-          class="absolute inset-0 -z-10 h-full w-full object-cover"
-          autoplay
-          loop
-          muted
-        />
-      ) : null}
-
-      {project.data.browser_image ? (
-        <Image
-          src={project.data.browser_image}
-          alt={project.data.title}
-          class="z-10 max-h-[75%] w-auto rounded"
-        />
-      ) : project.data.browser_video ? (
-        <video
-          src={project.data.browser_video}
-          class="z-10 rounded"
-          autoplay
-          loop
-          muted
-        />
-      ) : null}
-
-      {project.data.tags && project.data.tags.length > 0 && (
-        <ul class="absolute bottom-3 left-3 flex flex-wrap gap-2 md:bottom-4 md:left-4">
-          {project.data.tags.map((tag) => (
-            <li class="shrink-0 cursor-default rounded border border-white/50 p-1 text-[0.5rem] font-semibold uppercase leading-none tracking-wide backdrop-blur-sm sm:p-2 sm:text-[0.65rem]">
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  ))
-}
-
 <section id="work" class="relative bg-primary">
   <h2 class="sr-only">Featured work</h2>
   <div class="py-24 xl:py-36">
@@ -195,62 +115,187 @@ const projects = await getCollection("projects");
     </svg>
   </div>
 
-  <workslider client:idle>
+  <div
+    class="swiper relative z-[1] my-auto block h-auto w-full touch-pan-y overflow-hidden text-white"
+  >
     <div
-      class="swiper relative z-[1] my-auto block h-auto w-full touch-pan-y overflow-hidden text-white"
+      class="swiper-wrapper relative box-content flex h-[calc(100%-5.5rem)] w-full"
     >
-      <div
-        class="swiper-wrapper relative box-content flex h-[calc(100%-5.5rem)] w-full"
-      >
-        <div class="container hidden max-w-none gap-2 py-4 md:flex lg:py-8">
-          <button
-            class="swiper-button-prev text-white opacity-70 transition-opacity hover:opacity-100"
+      {
+        projects.map((project) => (
+          <div class="swiper-slide relative flex aspect-[3/5] h-full w-4/5 shrink-0 cursor-pointer flex-col items-center justify-center overflow-hidden rounded bg-white/5 px-3 transition-opacity delay-500 duration-500 md:w-1/2 md:px-4 lg:aspect-[4/5] lg:w-[calc(40%-58px)] lg:px-8 [&.swiper-slide-active]:cursor-default md:[&.swiper-slide-next]:cursor-default [&.swiper-slide-prev]:opacity-0">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+
+            <h2 class="absolute inset-3 z-10 text-xl font-semibold md:inset-8">
+              {project.data.url ? (
+                <a
+                  href={project.data.url}
+                  class="group inline-flex items-center gap-2"
+                  target="_blank"
+                >
+                  {project.data.title}
+                  <span class="opacity-0 transition-opacity group-hover:opacity-100">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>{" "}
+                  </span>
+                </a>
+              ) : (
+                project.data.title
+              )}
+            </h2>
+
+            {project.data.image ? (
+              <Image
+                src={project.data.image}
+                alt={project.data.title}
+                class="absolute inset-0 -z-10 h-full w-full object-cover"
+              />
+            ) : project.data.video ? (
+              <video
+                src={project.data.video}
+                class="absolute inset-0 -z-10 h-full w-full object-cover"
+                autoplay
+                loop
+                muted
+              />
+            ) : null}
+
+            {project.data.browser_image ? (
+              <Image
+                src={project.data.browser_image}
+                alt={project.data.title}
+                class="z-10 max-h-[75%] w-auto rounded"
+              />
+            ) : project.data.browser_video ? (
+              <video
+                src={project.data.browser_video}
+                class="z-10 rounded"
+                autoplay
+                loop
+                muted
+              />
+            ) : null}
+
+            {project.data.tags && project.data.tags.length > 0 && (
+              <ul class="absolute bottom-3 left-3 flex flex-wrap gap-2 md:bottom-4 md:left-4">
+                {project.data.tags.map((tag) => (
+                  <li class="shrink-0 cursor-default rounded border border-white/50 p-1 text-[0.5rem] font-semibold uppercase leading-none tracking-wide backdrop-blur-sm sm:p-2 sm:text-[0.65rem]">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+      <div class="container hidden max-w-none gap-2 py-4 md:flex lg:py-8">
+        <button
+          class="swiper-button-prev text-white opacity-70 transition-opacity hover:opacity-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              ></path>
-            </svg>
-          </button>
-          <button
-            class="swiper-button-next text-white opacity-70 transition-opacity hover:opacity-100"
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="swiper-button-next text-white opacity-70 transition-opacity hover:opacity-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              ></path>
-            </svg>
-          </button>
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            ></path>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
 
-    <div
-      class="container max-w-none pb-24 pt-16 text-2xl text-white xl:pb-36"
-      data-motion="fade"
-    >
-      Crafting unique online experiences with a focus on performance. Stay tuned
-      for upcoming case studies, delving into the details of how I've created
-      exceptional digital journeys that elevate both aesthetics and
-      functionality.
-    </div>
-  </workslider>
+  <div
+    class="container max-w-none pb-24 pt-16 text-2xl text-white xl:pb-36"
+    data-motion="fade"
+  >
+    Crafting unique online experiences with a focus on performance. Stay tuned
+    for upcoming case studies, delving into the details of how I've created
+    exceptional digital journeys that elevate both aesthetics and functionality.
+  </div>
 </section>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, Navigation } from "swiper/modules";
+
+  // init Swiper:
+  const swiper = new Swiper(".swiper", {
+    // configure Swiper to use modules
+    modules: [Autoplay, Navigation],
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    loop: true,
+    slidesOffsetBefore: 24,
+    speed: 500,
+    autoplay: {
+      disableOnInteraction: true,
+      pauseOnMouseEnter: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: {
+        // MD and up
+        spaceBetween: 24,
+        slidesOffsetBefore: 32,
+      },
+      1024: {
+        // LG and up
+        spaceBetween: 24,
+        slidesOffsetBefore: 48,
+      },
+      1280: {
+        // XL and up
+        spaceBetween: 32,
+        slidesOffsetBefore: 64,
+      },
+    },
+  });
+
+  // Add click event listener to the slides
+  swiper.on("click", function (swiper) {
+    // If the last slide is clicked, navigate to the next slide
+    if (swiper.clickedIndex === swiper.activeIndex + 2) {
+      swiper.slideNext();
+    }
+  });
+</script>
