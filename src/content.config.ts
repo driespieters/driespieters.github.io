@@ -10,18 +10,19 @@ const projects = defineCollection({
       video: z
         .string()
         .optional()
-        .refine((val) => !val || val.endsWith(".mp4"), {
-          message: "Video must be an MP4 file",
+        .refine((val) => !val || val.endsWith(".mp4") || val.endsWith(".mov"), {
+          message: "Video must be an MP4 or MOV file",
         }),
       browser_image: image(),
       browser_video: z
         .string()
         .optional()
-        .refine((val) => !val || val.endsWith(".mp4"), {
-          message: "Video must be an MP4 file",
+        .refine((val) => !val || val.endsWith(".mp4") || val.endsWith(".mov"), {
+          message: "Video must be an MP4 or MOV file",
         }),
       url: z.string().url().optional(),
       tags: z.array(z.string()).optional(),
+      sort: z.number().optional(),
     }),
 });
 

@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
+
+// Sort projects by the sort parameter
+projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
 ---
 
 <section id="work" class="relative bg-primary">
@@ -200,44 +203,44 @@ const projects = await getCollection("projects");
           </div>
         ))
       }
-      <div class="container hidden max-w-none gap-2 py-4 md:flex lg:py-8">
-        <button
-          class="swiper-button-prev text-white opacity-70 transition-opacity hover:opacity-100"
+    </div>
+    <div class="container hidden max-w-none gap-2 py-4 md:flex lg:py-8">
+      <button
+        class="swiper-button-prev text-white opacity-70 transition-opacity hover:opacity-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            ></path>
-          </svg>
-        </button>
-        <button
-          class="swiper-button-next text-white opacity-70 transition-opacity hover:opacity-100"
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          ></path>
+        </svg>
+      </button>
+      <button
+        class="swiper-button-next text-white opacity-70 transition-opacity hover:opacity-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            ></path>
-          </svg>
-        </button>
-      </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          ></path>
+        </svg>
+      </button>
     </div>
   </div>
 
