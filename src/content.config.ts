@@ -25,4 +25,12 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { projects };
+const services = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/data/services" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+export const collections = { projects, services };
