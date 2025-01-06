@@ -4,8 +4,8 @@
 
 # Redirect all /nl pages to /
 
-/nl/\* / 301
+/nl/* /
 
 # Redirect all /blogs pages to /
 
-/blogs/\* / 301
+/blogs/* /
