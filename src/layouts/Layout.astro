@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/inter";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import Header from "../components/Header.astro";
   <body class="bg-body text-primary antialiased">
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
@@ -122,5 +124,31 @@ import Header from "../components/Header.astro";
   }
   .link--current:after {
     border-bottom: 1px solid currentColor;
+  }
+
+  /* RTE */
+  .rte p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rte p:first-child {
+    margin-top: 0rem;
+  }
+
+  .rte p:last-child {
+    margin-bottom: 0rem;
+  }
+
+  .rte ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .rte a {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 </style>
