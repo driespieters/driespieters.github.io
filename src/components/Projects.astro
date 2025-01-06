@@ -6,13 +6,79 @@ const projects = await getCollection("projects");
 
 {
   projects.map((project) => (
-    <div>
-      <Image src={project.data.image} alt={project.data.title} />
-      <h2>{project.data.title}</h2>
-      {project.data.video && (
-        <video autoplay loop muted>
-          <source src={project.data.video} type="video/mp4" />
-        </video>
+    <div class="swiper-slide relative flex aspect-[3/5] h-full w-4/5 shrink-0 cursor-pointer flex-col items-center justify-center overflow-hidden rounded bg-white/5 px-3 transition-opacity delay-500 duration-500 md:w-1/2 md:px-4 lg:aspect-[4/5] lg:w-[calc(40%-58px)] lg:px-8 [&.swiper-slide-active]:cursor-default md:[&.swiper-slide-next]:cursor-default [&.swiper-slide-prev]:opacity-0">
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+
+      <h2 class="absolute inset-3 z-10 text-xl font-semibold md:inset-8">
+        {project.data.url ? (
+          <a
+            href={project.data.url}
+            class="group inline-flex items-center gap-2"
+            target="_blank"
+          >
+            {project.data.title}
+            <span class="opacity-0 transition-opacity group-hover:opacity-100">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                />
+              </svg>{" "}
+            </span>
+          </a>
+        ) : (
+          project.data.title
+        )}
+      </h2>
+
+      {project.data.image ? (
+        <Image
+          src={project.data.image}
+          alt={project.data.title}
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+      ) : project.data.video ? (
+        <video
+          src={project.data.video}
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+          autoplay
+          loop
+          muted
+        />
+      ) : null}
+
+      {project.data.browser_image ? (
+        <Image
+          src={project.data.browser_image}
+          alt={project.data.title}
+          class="z-10 max-h-[75%] w-auto rounded"
+        />
+      ) : project.data.browser_video ? (
+        <video
+          src={project.data.browser_video}
+          class="z-10 rounded"
+          autoplay
+          loop
+          muted
+        />
+      ) : null}
+
+      {project.data.tags && project.data.tags.length > 0 && (
+        <ul class="absolute bottom-3 left-3 flex flex-wrap gap-2 md:bottom-4 md:left-4">
+          {project.data.tags.map((tag) => (
+            <li class="shrink-0 cursor-default rounded border border-white/50 p-1 text-[0.5rem] font-semibold uppercase leading-none tracking-wide backdrop-blur-sm sm:p-2 sm:text-[0.65rem]">
+              {tag}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   ))

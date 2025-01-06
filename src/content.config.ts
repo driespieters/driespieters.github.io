@@ -13,6 +13,15 @@ const projects = defineCollection({
         .refine((val) => !val || val.endsWith(".mp4"), {
           message: "Video must be an MP4 file",
         }),
+      browser_image: image(),
+      browser_video: z
+        .string()
+        .optional()
+        .refine((val) => !val || val.endsWith(".mp4"), {
+          message: "Video must be an MP4 file",
+        }),
+      url: z.string().url().optional(),
+      tags: z.array(z.string()).optional(),
     }),
 });
 

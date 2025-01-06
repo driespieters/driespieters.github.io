@@ -1,5 +1,7 @@
 ---
 title: "HNST"
 image: "./hnst.webp"
-video: "/hnst.mp4"
+video: ""
+browser_image: ""
+browser_video: "/hnst.mp4"
 ---
