@@ -169,7 +169,7 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
             ) : project.data.video ? (
               <video
                 src={project.data.video}
-                class="absolute inset-0 -z-10 h-full w-full object-cover"
+                class="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
                 autoplay
                 loop
                 muted
@@ -186,7 +186,7 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
             ) : project.data.browser_video ? (
               <video
                 src={project.data.browser_video}
-                class="z-10 rounded"
+                class="pointer-events-none z-10 rounded"
                 autoplay
                 loop
                 muted

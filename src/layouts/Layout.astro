@@ -56,6 +56,10 @@ import Footer from "../components/Footer.astro";
 </script>
 
 <style is:global>
+  details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
+details > summary::-webkit-details-marker /* Safari */ {
+    display: none;
+  }
   /* Animations */
   .js [data-motion="fade"] {
     opacity: 0;
