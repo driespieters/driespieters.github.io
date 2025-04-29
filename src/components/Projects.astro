@@ -198,7 +198,7 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
             {project.data.tags && project.data.tags.length > 0 && (
               <ul class="absolute bottom-3 left-3 flex flex-wrap gap-2 md:bottom-4 md:left-4">
                 {project.data.tags.map((tag) => (
-                  <li class="shrink-0 cursor-default rounded border border-white/50 p-1 text-[0.5rem] font-semibold uppercase leading-none tracking-wide backdrop-blur-sm sm:p-2 sm:text-[0.65rem]">
+                  <li class={`shrink-0 cursor-default rounded p-1 text-[0.5rem] font-semibold uppercase leading-none tracking-wide backdrop-blur-sm sm:p-2 sm:text-[0.65rem] ${(project.data as any).dark_label ? "border border-primary text-primary" : "border border-white/50"}`}>
                     {tag}
                   </li>
                 ))}
