@@ -260,21 +260,17 @@ projects.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
 
 <script>
   import Swiper from "swiper";
-  import { Autoplay, Navigation } from "swiper/modules";
+  import { Navigation } from "swiper/modules";
 
   // init Swiper:
   const swiper = new Swiper(".swiper", {
     // configure Swiper to use modules
-    modules: [Autoplay, Navigation],
+    modules: [Navigation],
     slidesPerView: "auto",
     spaceBetween: 16,
     loop: true,
     slidesOffsetBefore: 24,
     speed: 500,
-    autoplay: {
-      disableOnInteraction: true,
-      pauseOnMouseEnter: false,
-    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
