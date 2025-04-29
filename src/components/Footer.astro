@@ -39,14 +39,14 @@ const currentYear = new Date().getFullYear();
 
 <script>
   class CurrentTime extends HTMLElement {
-    interval: number = 0;
+    interval: ReturnType<typeof setInterval> | null = null;
     connectedCallback() {
       this.render();
       this.interval = setInterval(() => this.render(), 1000);
     }
 
     disconnectedCallback() {
-      clearInterval(this.interval);
+      if (this.interval) clearInterval(this.interval);
     }
 
     render() {
