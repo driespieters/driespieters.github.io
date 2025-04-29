@@ -41,8 +41,9 @@ import Footer from "../components/Footer.astro";
   // General Inview animations
   inView(
     '[data-motion="up"],[data-motion="left"],[data-motion="fade"]',
-    (info) => {
-      animate(info.target, { opacity: 1 }, { delay: 0.5, duration: 0.9 });
+    (element: any) => {
+      animate(element, { opacity: 1 }, { delay: 0.5, duration: 0.9 });
+      return () => {};
     }
   );
   // Specific Element animations (index)
