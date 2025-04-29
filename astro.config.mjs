@@ -7,6 +7,5 @@ export default defineConfig({
   integrations: [tailwind()],
   experimental: {
     responsiveImages: true,
-    svg: true,
   },
 });
