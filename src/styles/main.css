@@ -1,0 +1,19 @@
+/* Custom styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS goes here */
+@layer base {
+  /* Add your base styles here */
+}
+
+@layer components {
+  /* Add your component styles here */
+}
+
+@layer utilities {
+  /* Add your utility styles here */
+}
+
+/* Or add regular CSS outside of Tailwind layers */ 
