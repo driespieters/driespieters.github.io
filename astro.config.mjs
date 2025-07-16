@@ -4,10 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://driespieters.com",
-  experimental: {
-    responsiveImages: true,
+  image: {
+    responsiveStyles: true,
   },
-
   vite: {
     plugins: [tailwindcss()],
   },
