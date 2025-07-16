@@ -3,6 +3,7 @@ import "@fontsource-variable/inter";
 import "../styles/main.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AnnouncementBar from "../components/AnnouncementBar.astro";
 ---
 
 <!doctype html>
@@ -23,6 +24,17 @@ import Footer from "../components/Footer.astro";
       data-website-id="5d13f315-1953-4a2c-ad14-c97cac4702fa"></script>
   </head>
   <body class="bg-body text-primary antialiased">
+    <AnnouncementBar />
+    <script>
+      // Immediately measure announcement bar height to minimize CLS
+      (function() {
+        const announcementBar = document.querySelector('[data-announcement-bar]') as HTMLElement;
+        if (announcementBar) {
+          const height = announcementBar.offsetHeight;
+          document.documentElement.style.setProperty('--announcement-bar-height', height + 'px');
+        }
+      })();
+    </script>
     <Header />
     <slot />
     <Footer />
@@ -33,6 +45,18 @@ import Footer from "../components/Footer.astro";
   // Add JS class to document
   document.documentElement.className =
     document.documentElement.className.replace("no-js", "js");
+
+  // Handle announcement bar height changes on resize
+  function updateAnnouncementBarHeight() {
+    const announcementBar = document.querySelector('[data-announcement-bar]') as HTMLElement;
+    if (announcementBar) {
+      const height = announcementBar.offsetHeight;
+      document.documentElement.style.setProperty('--announcement-bar-height', height + 'px');
+    }
+  }
+
+  // Update on resize
+  window.addEventListener('resize', updateAnnouncementBarHeight);
 </script>
 
 <script>
@@ -44,11 +68,11 @@ import Footer from "../components/Footer.astro";
     (element: any) => {
       animate(element, { opacity: 1 }, { delay: 0.5, duration: 0.9 });
       return () => {};
-    }
+    },
   );
   // Specific Element animations (index)
   const featuredWork = document.querySelectorAll(
-    '[data-motion="featuredwork"]'
+    '[data-motion="featuredwork"]',
   );
   if (featuredWork) {
     scroll(animate(featuredWork, { opacity: [0.25, 1] }), {
@@ -58,6 +82,10 @@ import Footer from "../components/Footer.astro";
 </script>
 
 <style is:global>
+  /* Set announcement bar height custom property with good default */
+  :root {
+    --announcement-bar-height: 2.5rem; /* Reasonable default to minimize CLS */
+  }
   details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
 details > summary::-webkit-details-marker /* Safari */ {
     display: none;
