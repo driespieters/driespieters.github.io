@@ -25,19 +25,11 @@ import AnnouncementBar from "../components/AnnouncementBar.astro";
   </head>
   <body class="bg-body text-primary antialiased">
     <AnnouncementBar />
-    <script>
-      // Immediately measure announcement bar height to minimize CLS
-      (function() {
-        const announcementBar = document.querySelector('[data-announcement-bar]') as HTMLElement;
-        if (announcementBar) {
-          const height = announcementBar.offsetHeight;
-          document.documentElement.style.setProperty('--announcement-bar-height', height + 'px');
-        }
-      })();
-    </script>
-    <Header />
-    <slot />
-    <Footer />
+    <div class="relative">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
 
@@ -45,18 +37,6 @@ import AnnouncementBar from "../components/AnnouncementBar.astro";
   // Add JS class to document
   document.documentElement.className =
     document.documentElement.className.replace("no-js", "js");
-
-  // Handle announcement bar height changes on resize
-  function updateAnnouncementBarHeight() {
-    const announcementBar = document.querySelector('[data-announcement-bar]') as HTMLElement;
-    if (announcementBar) {
-      const height = announcementBar.offsetHeight;
-      document.documentElement.style.setProperty('--announcement-bar-height', height + 'px');
-    }
-  }
-
-  // Update on resize
-  window.addEventListener('resize', updateAnnouncementBarHeight);
 </script>
 
 <script>
@@ -82,10 +62,6 @@ import AnnouncementBar from "../components/AnnouncementBar.astro";
 </script>
 
 <style is:global>
-  /* Set announcement bar height custom property with good default */
-  :root {
-    --announcement-bar-height: 2.5rem; /* Reasonable default to minimize CLS */
-  }
   details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
 details > summary::-webkit-details-marker /* Safari */ {
     display: none;
