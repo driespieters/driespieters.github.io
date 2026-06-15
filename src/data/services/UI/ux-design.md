@@ -1,4 +1,4 @@
 ---
-title: "UI/UX Design"
-description: "After transforming your objectives into detailed wireframes, I craft a user interface design for a custom theme that delivers a unique look and feel. Ensuring a seamless creative user interface for both mobile and desktop."
+title: "UI/UX Design Consultancy"
+description: "Guiding the process from start to finish. Turning your objectives into clear wireframes and direction, advising on user experience, and steering designers toward a unique look and feel that works seamlessly across mobile and desktop."
 ---
