@@ -8,9 +8,6 @@ export default defineConfig({
     // Page is tiny: inline CSS so nothing blocks rendering
     inlineStylesheets: "always",
   },
-  image: {
-    responsiveStyles: true,
-  },
   vite: {
     plugins: [tailwindcss()],
   },
