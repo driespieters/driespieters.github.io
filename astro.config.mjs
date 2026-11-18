@@ -4,8 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://driespieters.com",
-  image: {
-    responsiveStyles: true,
+  build: {
+    // Page is tiny: inline CSS so nothing blocks rendering
+    inlineStylesheets: "always",
   },
   vite: {
     plugins: [tailwindcss()],

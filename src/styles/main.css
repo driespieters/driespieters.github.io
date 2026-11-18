@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Inter, Latin subset only */
+@font-face {
+  font-family: "Inter Variable";
+  src: url("../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
+    format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans:
     Inter Variable, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
@@ -7,20 +17,6 @@
 
   --color-primary: #1c1c1e;
   --color-textlight: #5e5e65;
-  --color-body: #f8f6ef;
-  --color-accent: #4566e3;
+  --color-body: #faf9f6;
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-  @media (width >= theme(--breakpoint-md)) {
-    padding-inline: 2rem;
-  }
-  @media (width >= theme(--breakpoint-lg)) {
-    padding-inline: 3rem;
-  }
-  @media (width >= theme(--breakpoint-xl)) {
-    padding-inline: 4rem;
-  }
-}
