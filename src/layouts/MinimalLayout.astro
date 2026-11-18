@@ -1,0 +1,33 @@
+---
+import "@fontsource-variable/inter";
+import "../styles/main.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Dries Pieters",
+  description = "Dries Pieters — Senior Web Developer at Loop Earplugs, based in Belgium.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="5d13f315-1953-4a2c-ad14-c97cac4702fa"></script>
+  </head>
+  <body class="bg-body text-primary antialiased">
+    <slot />
+  </body>
+</html>

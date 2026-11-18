@@ -24,6 +24,8 @@ const projects = defineCollection({
       tags: z.array(z.string()).optional(),
       sort: z.number().optional(),
       dark_label: z.boolean().optional(),
+      year: z.string().optional(),
+      summary: z.string().optional(),
     }),
 });
 

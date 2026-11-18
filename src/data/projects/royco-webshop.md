@@ -9,4 +9,6 @@ tags:
   - Shopify OS2
   - development
 sort: 7
+year: "2020"
+summary: "Shopify migration with Minsky, incl. warehouse integration."
 ---

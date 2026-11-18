@@ -1,12 +1,99 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Welcome from "../components/Welcome.astro";
-import Projects from "../components/Projects.astro";
-import Services from "../components/Services.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import MinimalLayout from "../layouts/MinimalLayout.astro";
+import portrait from "../assets/driespieters.jpg";
+
+const projects = (await getCollection("projects"))
+  .filter((p) => p.id !== "loop-earplugs")
+  .sort((a, b) => (a.data.sort ?? 99) - (b.data.sort ?? 99));
+
+const links = [
+  { label: "Email", href: "mailto:hello@driespieters.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/driespieters/" },
+];
 ---
 
-<Layout>
-  <Welcome />
-  <Projects />
-  <Services />
-</Layout>
+<MinimalLayout>
+  <main class="mx-auto max-w-[36rem] px-6 py-20 text-[15px] leading-relaxed md:py-32">
+    <header class="flex items-center gap-4">
+      <Image
+        src={portrait}
+        alt="Dries Pieters"
+        width={192}
+        class="size-20 rounded-full object-cover object-top"
+        priority
+      />
+      <div>
+        <h1 class="text-3xl font-medium tracking-tight">Dries Pieters</h1>
+        <p class="text-textlight mt-1">
+          Senior Web Developer at{" "}
+          <a class="u-link" href="https://www.loopearplugs.com/" target="_blank" rel="noopener noreferrer">Loop Earplugs</a>
+        </p>
+      </div>
+    </header>
+
+    <section class="mt-14 space-y-4">
+      <p>
+        Front-end developer with over 10 years of experience specializing in
+        Shopify. I build fast,
+        high-performance storefronts with Liquid, JavaScript and modern
+        frameworks, and work AI-native, with agents and tooling built into how
+        I design, build and ship.
+      </p>
+      <p class="text-textlight">
+        Before that I worked independently, helping start-ups and established
+        brands optimize and scale their e-commerce. Away from the screen:
+        mountain biking, hiking, guitar and cooking.
+      </p>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-textlight mb-4">Previous work</h2>
+      <ul class="space-y-2">
+        {
+          projects.map((p) => (
+            <li>
+              <div class="flex items-baseline">
+                <span>{p.data.title}</span>
+                <span class="mx-3 h-px flex-1 bg-current opacity-15" />
+                <span class="text-textlight tabular-nums">{p.data.year}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-textlight mb-4">Elsewhere</h2>
+      <p class="flex flex-wrap gap-x-5 gap-y-1">
+        {links.map((l) => <a class="u-link" href={l.href}>{l.label}</a>)}
+      </p>
+    </section>
+
+    <footer class="text-textlight mt-24 text-[13px]">
+      &copy; {new Date().getFullYear()} · Belgium
+    </footer>
+  </main>
+</MinimalLayout>
+
+<style>
+  .row {
+    display: flex;
+    align-items: baseline;
+    padding-block: 0.4rem;
+  }
+  a.row:hover span:first-child {
+    color: var(--color-accent);
+  }
+  .u-link {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .u-link:hover {
+    text-decoration-color: currentColor;
+  }
+</style>
