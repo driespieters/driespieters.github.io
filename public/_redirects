@@ -1,6 +1,7 @@
 # Redirects from what the browser requests to what we serve
 
-/policies/terms-of-service /terms-and-conditions
+/policies/terms-of-service /
+/terms-and-conditions /
 
 # Redirect all /nl pages to /
 
