@@ -1,5 +1,5 @@
 ---
-title: "HNST"
+title: "HNST Jeans"
 image: "./hnst.webp"
 video: ""
 browser_image: ""

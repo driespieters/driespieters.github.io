@@ -6,7 +6,13 @@ import portrait from "../assets/driespieters.jpg";
 
 const projects = (await getCollection("projects"))
   .filter((p) => p.id !== "loop-earplugs")
-  .sort((a, b) => (a.data.sort ?? 99) - (b.data.sort ?? 99));
+  .sort((a, b) => {
+    // Most recent first: by end year, then by start year
+    const years = (y = "") => y.match(/\d{4}/g)?.map(Number) ?? [0];
+    const [aStart, aEnd = aStart] = years(a.data.year);
+    const [bStart, bEnd = bStart] = years(b.data.year);
+    return bEnd - aEnd || bStart - aStart;
+  });
 
 const links = [
   { label: "Email", href: "mailto:hello@driespieters.com" },
@@ -25,10 +31,10 @@ const links = [
         priority
       />
       <div>
-        <h1 class="text-3xl font-medium tracking-tight">Dries Pieters</h1>
-        <p class="text-textlight mt-1">
+        <h1 class="text-2xl font-medium md:text-3xl tracking-tight">Dries Pieters</h1>
+        <p class="text-textlight mt-1 text-sm md:text-base">
           Senior Web Developer at{" "}
-          <a class="u-link" href="https://www.loopearplugs.com/" target="_blank" rel="noopener noreferrer">Loop Earplugs</a>
+          <a class="u-link whitespace-nowrap" href="https://www.loopearplugs.com/" target="_blank" rel="noopener noreferrer">Loop Earplugs</a>
         </p>
       </div>
     </header>
