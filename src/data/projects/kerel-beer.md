@@ -5,7 +5,7 @@ tags:
   - Shopify OS2
   - migration
   - development
-sort: 6
-year: "2022–2026"
+sort: 2
+year: "2022"
 summary: "WooCommerce → Shopify migration and custom theme for VBDCK Brewery."
 ---
